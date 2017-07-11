@@ -6,19 +6,7 @@ import { TabNavigator } from 'react-navigation';
 import Dashboard from './Components/Dashboard';
 import Details from './Components/Details';
 
-class RecentChatsScreen extends React.Component {
-  render() {
-    return <Text>List of recent chats</Text>;
-  }
-}
-
-class AllContactsScreen extends React.Component {
-  render() {
-    return <Text>List of all contacts</Text>;
-  }
-}
-
-const MainScreenNavigator = TabNavigator({
+const ScreenNavigator = TabNavigator({
   Dashboard: { screen: Dashboard },
   Details: { screen: Details },
 });
@@ -34,7 +22,7 @@ export default class Index extends React.Component {
 
   render() {
     return (
-      <MainScreenNavigator />
+      <ScreenNavigator />
     );
   }
 }
