@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, Image, ScrollView, Button } from 'react-native';
+import { Text, View, Image, ScrollView } from 'react-native';
 import axios from 'axios';
 
 export default class Dashboard extends React.Component {
@@ -8,7 +8,6 @@ export default class Dashboard extends React.Component {
     this.state = {
       content: [],
     };
-    this.navigateTo = this.navigateTo.bind(this);
   }
 
   componentWillMount() {
@@ -24,12 +23,8 @@ export default class Dashboard extends React.Component {
       });
   }
 
-  navigateTo() {
-    const { navigate } = this.props.navigation;
-    navigate('Details', { user: 'Lucy' });
-  }
-
   render() {
+    const { navigate } = this.props.navigation;
     return (
       <View>
         <ScrollView
@@ -45,7 +40,6 @@ export default class Dashboard extends React.Component {
                   style={styles.view}
                   key={res._id}>
                   <Text
-                    onPress={this.navigateTo}
                     style={styles.text}
                     >{res.title}</Text>
                   <Image

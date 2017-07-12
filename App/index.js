@@ -12,10 +12,6 @@ const ScreenNavigator = TabNavigator({
 });
 
 export default class Index extends React.Component {
-  // static navigationOptions =  ({ navigation }) => ({
-  //   title: 'Bundles',
-  //   headerRight: <Text onPress={ () => { navigation.navigate('ToSomeRoute'); } }>Click Me</Text>,
-  // });
   static navigationOptions = {
     title: 'Welcome',
   };
