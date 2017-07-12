@@ -31,15 +31,27 @@ export default class Details extends React.Component {
   sendComment() {
     if (this.state.text.length > 1) {
       const comment = this.state.text;
-      console.log('Click');
-      // request
-      //   .post('https://react-eko.herokuapp.com/p/d')
-      //   .type('form')
-      //   .send({ box: comment }) // sends a JSON post body
-      //   .set('Accept', 'application/json')
-      //   .end(function (err, res) {
-      //   // Calling the end function will send the request
-      // });
+
+      const data = this.state.content;
+      for (let i = 0; i < data.length; i++) {
+        if (data[i]._id == this.state.id) {
+          data[i].comments.push(comment);
+        }
+      }
+
+      this.setState({ content: data });
+
+      request
+        .post('https://react-eko.herokuapp.com/p/d')
+        .type('form')
+        .send({
+          box: comment,
+          id: this.state.id,
+        }) // sends a JSON post body
+        .set('Accept', 'application/json')
+        .end(function (err, res) {
+        // Calling the end function will send the request
+      });
     }
   }
 
@@ -68,7 +80,7 @@ export default class Details extends React.Component {
                   <TextInput
                     style={{ height: 40, width: 260 }}
                     placeholder="Type here to translate!"
-                    onChangeText={(text) => this.setState({ text })}
+                    onChangeText={(text) => this.setState({ text, id: res._id })}
                   />
                   <Button
                     title="Send"
