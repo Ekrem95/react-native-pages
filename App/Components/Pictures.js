@@ -5,7 +5,7 @@ import { Text, View, Image, Button,
 import axios from 'axios';
 import request from 'superagent';
 
-export default class Details extends React.Component {
+export default class Pictures extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -19,15 +19,31 @@ export default class Details extends React.Component {
     title: 'Home',
   };
 
+  componentWillMount() {
+    axios.get('https://react-eko.herokuapp.com/api/posts')
+      .then(res => {
+        //console.log(res.data);
+        this.setState({
+          content: res.data,
+        });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+
   sendComment() {
     if (this.state.text.length > 1) {
       const comment = this.state.text;
-      const comments = this.state.comments;
-      comments.push(comment);
 
-      this.setState({
-        comments,
-      });
+      const data = this.state.content;
+      for (let i = 0; i < data.length; i++) {
+        if (data[i]._id == this.state.id) {
+          data[i].comments.push(comment);
+        }
+      }
+
+      this.setState({ content: data });
 
       request
         .post('https://react-eko.herokuapp.com/p/d')
@@ -44,39 +60,33 @@ export default class Details extends React.Component {
   }
 
   render() {
-    const res = this.props.navigation.state.params.post;
     return (
-      <View
-        style={styles.view}
-      >
+
+      <View>
         <ScrollView>
-          <Image
-            style={{ width: 350, height: 350, }}
-            source={{ uri: res.src }}
-          />
-          <TextInput
-            style={{ height: 40, width: 260 }}
-            placeholder="Type here to comment"
-            onChangeText={(text) => this.setState({
-              text, id: res._id, comments: res.comments,
-            })}
-          />
-          <Button
-            title="Send"
-            onPress={this.sendComment}
-          />
-          {res.comments &&
-            res.comments.map((comment, i) => {
+          {
+            this.state.content &&
+            this.state.content.map(res => {
               return (
-                <Text
-                  key={i}
-                  style={styles.text}
-                >{comment}</Text>
-              );
+                <TouchableHighlight
+                  onPress={() => this.props.navigation.navigate('Details', { post: res })}
+                  key={res._id}
+                  underlayColor='rgba(255,255,255,0.1)'
+                  >
+                  <View style={styles.view}>
+                    <Image
+                      style={{ width: 350, height: 350, }}
+                      source={{ uri: res.src }}
+                      onPress={() => this.props.navigation.navigate('Details', { post: res })}
+                    />
+                  </View>
+                </TouchableHighlight>
+            );
             })
           }
         </ScrollView>
       </View>
+
     );
   }
 }
