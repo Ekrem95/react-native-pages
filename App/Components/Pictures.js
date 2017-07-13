@@ -3,7 +3,6 @@ import { Text, View, Image, Button,
          TextInput, ScrollView, TouchableHighlight
        } from 'react-native';
 import axios from 'axios';
-import request from 'superagent';
 
 export default class Pictures extends React.Component {
   constructor() {
@@ -12,7 +11,6 @@ export default class Pictures extends React.Component {
       content: [],
       text: '',
     };
-    this.sendComment = this.sendComment.bind(this);
   }
 
   static navigationOptions = {
@@ -30,33 +28,6 @@ export default class Pictures extends React.Component {
       .catch(error => {
         console.log(error);
       });
-  }
-
-  sendComment() {
-    if (this.state.text.length > 1) {
-      const comment = this.state.text;
-
-      const data = this.state.content;
-      for (let i = 0; i < data.length; i++) {
-        if (data[i]._id == this.state.id) {
-          data[i].comments.push(comment);
-        }
-      }
-
-      this.setState({ content: data });
-
-      request
-        .post('https://react-eko.herokuapp.com/p/d')
-        .type('form')
-        .send({
-          box: comment,
-          id: this.state.id,
-        }) // sends a JSON post body
-        .set('Accept', 'application/json')
-        .end(function (err, res) {
-        // Calling the end function will send the request
-      });
-    }
   }
 
   render() {

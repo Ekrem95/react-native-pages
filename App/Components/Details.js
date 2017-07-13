@@ -2,13 +2,17 @@ import React from 'react';
 import { Text, View, Image, Button,
          TextInput, ScrollView, TouchableHighlight, Dimensions
        } from 'react-native';
-import axios from 'axios';
 import request from 'superagent';
 
 export default class Details extends React.Component {
   constructor() {
     super();
     this.sendComment = this.sendComment.bind(this);
+    this.clearText = this.clearText.bind(this);
+  }
+
+  clearText(fieldName) {
+    this.refs[fieldName].setNativeProps({ text: '' });
   }
 
   sendComment() {
@@ -32,6 +36,8 @@ export default class Details extends React.Component {
         .end(function (err, res) {
         // Calling the end function will send the request
       });
+
+      this.clearText('textInput');
     }
   }
 
@@ -49,16 +55,24 @@ export default class Details extends React.Component {
             resizeMode="cover"
           />
           <TextInput
-            style={{ flex: 1, height: 40, width: 260, alignSelf: 'center', paddingLeft: 5 }}
+            ref={'textInput'}
+            style={ styles.TextInput }
             placeholder="Type here to comment"
             onChangeText={(text) => this.setState({
               text, id: res._id, comments: res.comments,
             })}
           />
+          <View
+            style={{
+              width: 90,
+              alignSelf: 'center',
+            }}
+          >
           <Button
             title="Send"
             onPress={this.sendComment}
           />
+          </View>
           {res.comments &&
             res.comments.map((comment, i) => {
               return (
@@ -87,5 +101,12 @@ const styles = {
   text: {
     padding: 10,
     textAlign: 'center',
+  },
+  TextInput: {
+    flex: 1,
+    height: 40,
+    width: 260,
+    alignSelf: 'center',
+    paddingLeft: 5,
   },
 };

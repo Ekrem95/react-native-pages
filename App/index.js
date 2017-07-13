@@ -14,16 +14,22 @@ const ScreenNavigator = TabNavigator({
   tabBarOptions: {
     activeTintColor: '#2699ed',
     inactiveTintColor: '#1366a2',
+    //scrollEnabled: true,
     labelStyle: {
       fontSize: 12,
     },
     style: {
       backgroundColor: '#fff',
       height: 36,
+      marginTop: 25,
     },
     labelStyle: {
       paddingTop: 0,
       marginTop: 0,
+    },
+    indicatorStyle: {
+      backgroundColor: '#092a3e',
+      height: 1,
     },
   },
 });
@@ -31,7 +37,7 @@ const ScreenNavigator = TabNavigator({
 export default class Index extends React.Component {
   constructor() {
     super();
-    StatusBar.setHidden(true);
+    StatusBar.setHidden(false);
   }
 
   render() {
