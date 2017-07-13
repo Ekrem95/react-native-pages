@@ -14,15 +14,31 @@ export default class Dashboard extends React.Component {
   }
 }
 
+export const navOptions = ({ navigation }) => ({
+  headerStyle: {
+    height: 40,
+  },
+  headerTitleStyle: {
+    fontSize: 16,
+  },
+});
+
 const ModalStack = StackNavigator({
   Pictures: {
     screen: Pictures,
+    navigationOptions: navOptions,
   },
   Details: {
     path: 'posts/:id',
     screen: Details,
     navigationOptions: ({ navigation }) => ({
-      title: `${navigation.state.params.post.title}`,
+      title: `${navigation.state.params.post.title}` || 'Pictures',
+      headerStyle: {
+        height: 40,
+      },
+      headerTitleStyle: {
+        fontSize: 16,
+      },
     }),
   },
 });

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, View, Image, Button,
-         TextInput, ScrollView, TouchableHighlight
+         TextInput, ScrollView, TouchableHighlight, Dimensions
        } from 'react-native';
 import axios from 'axios';
 import request from 'superagent';
@@ -8,16 +8,8 @@ import request from 'superagent';
 export default class Details extends React.Component {
   constructor() {
     super();
-    this.state = {
-      content: [],
-      text: '',
-    };
     this.sendComment = this.sendComment.bind(this);
   }
-
-  static navigationOptions = {
-    title: 'Home',
-  };
 
   sendComment() {
     if (this.state.text.length > 1) {
@@ -45,17 +37,19 @@ export default class Details extends React.Component {
 
   render() {
     const res = this.props.navigation.state.params.post;
+    const { width } = Dimensions.get('window');
     return (
       <View
         style={styles.view}
       >
         <ScrollView>
           <Image
-            style={{ width: 350, height: 350, }}
+            style={{ width: width, height: width, alignSelf: 'center' }}
             source={{ uri: res.src }}
+            resizeMode="cover"
           />
           <TextInput
-            style={{ height: 40, width: 260 }}
+            style={{ flex: 1, height: 40, width: 260, alignSelf: 'center', paddingLeft: 5 }}
             placeholder="Type here to comment"
             onChangeText={(text) => this.setState({
               text, id: res._id, comments: res.comments,
@@ -83,13 +77,11 @@ export default class Details extends React.Component {
 
 const styles = {
   view: {
+    display: 'flex',
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 6,
-    borderWidth: 2,
-    borderColor: '#eee',
     marginBottom: 20,
   },
   text: {

@@ -16,7 +16,7 @@ export default class Pictures extends React.Component {
   }
 
   static navigationOptions = {
-    title: 'Home',
+    title: 'Pictures',
   };
 
   componentWillMount() {
@@ -61,32 +61,28 @@ export default class Pictures extends React.Component {
 
   render() {
     return (
-
       <View>
-        <ScrollView>
-          {
-            this.state.content &&
+        <ScrollView style={{ backgroundColor: '#fff', }}>
+          { this.state.content &&
             this.state.content.map(res => {
               return (
-                <TouchableHighlight
-                  onPress={() => this.props.navigation.navigate('Details', { post: res })}
-                  key={res._id}
-                  underlayColor='rgba(255,255,255,0.1)'
-                  >
-                  <View style={styles.view}>
-                    <Image
-                      style={{ width: 350, height: 350, }}
-                      source={{ uri: res.src }}
-                      onPress={() => this.props.navigation.navigate('Details', { post: res })}
-                    />
-                  </View>
-                </TouchableHighlight>
+                <View style={styles.view} key={res._id}>
+                  <TouchableHighlight
+                    onPress={() => this.props.navigation.navigate('Details', { post: res })}
+                    underlayColor='rgba(255,255,255,0.1)'
+                    >
+                  <Image
+                    style={{ width: 350, height: 350, }}
+                    source={{ uri: res.src }}
+                    resizeMode="cover"
+                  />
+                  </TouchableHighlight>
+                </View>
             );
             })
           }
         </ScrollView>
       </View>
-
     );
   }
 }
@@ -101,6 +97,7 @@ const styles = {
     borderWidth: 2,
     borderColor: '#eee',
     marginBottom: 20,
+    backgroundColor: '#fff',
   },
   text: {
     padding: 10,
