@@ -10,6 +10,7 @@ const ScreenNavigator = TabNavigator({
   Home: { screen: Home },
   Dashboard: { screen: Dashboard },
 }, {
+  initialRouteName: 'Dashboard',
   //tabBarPosition: 'bottom',
   tabBarOptions: {
     activeTintColor: '#2699ed',
