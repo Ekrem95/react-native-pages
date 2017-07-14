@@ -8,7 +8,6 @@ import { navOptions } from './Home';
 import Profile from './Profile';
 import Scenes from './Scenes';
 import Map from './Map';
-import Camera from './Camera';
 
 export default class Dashboard extends React.Component {
   render() {
@@ -40,18 +39,6 @@ const ModalStack = StackNavigator({
     screen: Map,
     navigationOptions: ({ navigation }) => ({
       title: `Map`,
-      headerStyle: {
-        height: 40,
-      },
-      headerTitleStyle: {
-        fontSize: 16,
-      },
-    }),
-  },
-  Camera: {
-    screen: Camera,
-    navigationOptions: ({ navigation }) => ({
-      title: `Camera`,
       headerStyle: {
         height: 40,
       },

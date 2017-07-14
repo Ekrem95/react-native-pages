@@ -41,7 +41,6 @@ export default class Scenes extends React.Component {
             </View>
           </TouchableHighlight>
           <TouchableHighlight
-            onPress={() => this.props.navigation.navigate('Camera')}
             underlayColor='rgba(255,255,255,0.1)'
             >
             <View
