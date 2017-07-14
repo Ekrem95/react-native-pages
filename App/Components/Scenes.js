@@ -2,9 +2,9 @@ import React from 'react';
 import { Text, View, Image, Button, ScrollView, TouchableHighlight } from 'react-native';
 import axios from 'axios';
 
-export default class Profiles extends React.Component {
+export default class Scenes extends React.Component {
   static navigationOptions = {
-    title: 'Profiles',
+    title: 'Scenes',
   };
   render() {
     return (
@@ -22,7 +22,10 @@ export default class Profiles extends React.Component {
           }}
           >
           <ScrollView horizontal={true}>
-          <TouchableHighlight>
+          <TouchableHighlight
+            onPress={() => this.props.navigation.navigate('Map')}
+            underlayColor='rgba(255,255,255,0.1)'
+            >
             <View
               style={{
                 height: 300,
@@ -30,7 +33,12 @@ export default class Profiles extends React.Component {
                 backgroundColor: 'pink',
                 margin: 10,
               }}
-              ></View>
+              ><Image
+                style={{ width: 300, height: 300, }}
+                source={{ uri: 'http://romaniatourism.com/romania-maps/europe-map.gif' }}
+                resizeMode="cover"
+               />
+            </View>
           </TouchableHighlight>
           <TouchableHighlight>
             <View

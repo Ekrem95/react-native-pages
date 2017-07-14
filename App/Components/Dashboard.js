@@ -6,7 +6,8 @@ import { StackNavigator } from 'react-navigation';
 import { navOptions } from './Home';
 
 import Profile from './Profile';
-import Profiles from './Profiles';
+import Scenes from './Scenes';
+import Map from './Map';
 
 export default class Dashboard extends React.Component {
   render() {
@@ -17,8 +18,8 @@ export default class Dashboard extends React.Component {
 }
 
 const ModalStack = StackNavigator({
-  Profiles: {
-    screen: Profiles,
+  Scenes: {
+    screen: Scenes,
     navigationOptions: navOptions,
   },
   Profile: {
@@ -26,6 +27,18 @@ const ModalStack = StackNavigator({
     screen: Profile,
     navigationOptions: ({ navigation }) => ({
       title: `${navigation.state.params.name}'s Profile`,
+      headerStyle: {
+        height: 40,
+      },
+      headerTitleStyle: {
+        fontSize: 16,
+      },
+    }),
+  },
+  Map: {
+    screen: Map,
+    navigationOptions: ({ navigation }) => ({
+      title: `Map`,
       headerStyle: {
         height: 40,
       },
