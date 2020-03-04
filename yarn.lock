@@ -2232,9 +2232,9 @@ expand-range@^1.8.1:
   dependencies:
     fill-range "^2.1.0"
 
-expo@18.0.8:
-  version "18.0.8"
-  resolved "https://registry.yarnpkg.com/expo/-/expo-18.0.8.tgz#1536f7b9e715421f0d303d6ee9c786f623a47e19"
+expo@18.0.9:
+  version "18.0.9"
+  resolved "https://registry.yarnpkg.com/expo/-/expo-18.0.9.tgz#5653a930c79ae5b268e3811b990b1aced21ba42d"
   dependencies:
     "@expo/vector-icons" "^5.0.0"
     babel-preset-airbnb "^2.2.3"
@@ -2248,7 +2248,7 @@ expo@18.0.8:
     prop-types "^15.5.10"
     react-native-branch "2.0.0-beta.3"
     react-native-fbads "https://github.com/callstack-io/react-native-fbads/tarball/v4.1.0"
-    react-native-maps "0.15.3"
+    react-native-maps "https://github.com/expo/react-native-maps/archive/v0.15.2.tar.gz"
     react-native-svg "https://github.com/expo/react-native-svg/archive/5.2.0-exp.0.tar.gz"
     uuid-js "^0.7.5"
     websql "github:expo/node-websql#18.0.0"
@@ -4954,6 +4954,11 @@ react-native-image-picker@0.26.3:
 react-native-maps@0.15.3:
   version "0.15.3"
   resolved "https://registry.yarnpkg.com/react-native-maps/-/react-native-maps-0.15.3.tgz#5d9e0a8e30ecc51dc755b7a3b9d6b6ed5e2dd08c"
+
+"react-native-maps@https://github.com/expo/react-native-maps/archive/v0.15.2.tar.gz":
+  version "0.15.2"
+  uid e6a022511fbb53d0db5029dc0b159dd194a3763f
+  resolved "https://github.com/expo/react-native-maps/archive/v0.15.2.tar.gz#e6a022511fbb53d0db5029dc0b159dd194a3763f"
 
 react-native-safe-module@^1.1.0:
   version "1.2.0"
