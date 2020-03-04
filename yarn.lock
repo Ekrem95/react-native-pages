@@ -4947,9 +4947,9 @@ react-native-drawer-layout@1.3.2:
   dependencies:
     eventemitter3 "^2.0.2"
 
-react-native-image-picker@0.26.3:
-  version "0.26.3"
-  resolved "https://registry.yarnpkg.com/react-native-image-picker/-/react-native-image-picker-0.26.3.tgz#0ad2eede49501a7046d8046a73813696539c3dcd"
+react-native-image-picker@2.3.1:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/react-native-image-picker/-/react-native-image-picker-2.3.1.tgz#1977b65e07793d2c0b2d1976fb675c5f75ad7f11"
 
 react-native-maps@0.15.3:
   version "0.15.3"
