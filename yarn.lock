@@ -2232,7 +2232,7 @@ expand-range@^1.8.1:
   dependencies:
     fill-range "^2.1.0"
 
-expo@^18.0.3:
+expo@18.0.8:
   version "18.0.8"
   resolved "https://registry.yarnpkg.com/expo/-/expo-18.0.8.tgz#1536f7b9e715421f0d303d6ee9c786f623a47e19"
   dependencies:
@@ -2251,7 +2251,7 @@ expo@^18.0.3:
     react-native-maps "0.15.3"
     react-native-svg "https://github.com/expo/react-native-svg/archive/5.2.0-exp.0.tar.gz"
     uuid-js "^0.7.5"
-    websql expo/node-websql#18.0.0
+    websql "github:expo/node-websql#18.0.0"
 
 express-session@~1.11.3:
   version "1.11.3"
@@ -3305,7 +3305,7 @@ jest-environment-node@^19.0.2:
     jest-mock "^19.0.0"
     jest-util "^19.0.2"
 
-jest-expo@~18.0.0:
+jest-expo@18.0.0:
   version "18.0.0"
   resolved "https://registry.yarnpkg.com/jest-expo/-/jest-expo-18.0.0.tgz#681ba2e47319ff74e6caa2441f2fdc4b1a34492f"
   dependencies:
@@ -4923,7 +4923,7 @@ react-native-dismiss-keyboard@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/react-native-dismiss-keyboard/-/react-native-dismiss-keyboard-1.0.0.tgz#32886242b3f2317e121f3aeb9b0a585e2b879b49"
 
-react-native-dotenv@^0.1.0:
+react-native-dotenv@0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/react-native-dotenv/-/react-native-dotenv-0.1.0.tgz#201de3b47a514476bfd33117a54ddb4cf90b00d8"
   dependencies:
@@ -4947,11 +4947,11 @@ react-native-drawer-layout@1.3.2:
   dependencies:
     eventemitter3 "^2.0.2"
 
-react-native-image-picker@^0.26.3:
+react-native-image-picker@0.26.3:
   version "0.26.3"
   resolved "https://registry.yarnpkg.com/react-native-image-picker/-/react-native-image-picker-0.26.3.tgz#0ad2eede49501a7046d8046a73813696539c3dcd"
 
-react-native-maps@0.15.3, react-native-maps@^0.15.3:
+react-native-maps@0.15.3:
   version "0.15.3"
   resolved "https://registry.yarnpkg.com/react-native-maps/-/react-native-maps-0.15.3.tgz#5d9e0a8e30ecc51dc755b7a3b9d6b6ed5e2dd08c"
 
@@ -4999,7 +4999,7 @@ react-native-vector-icons@4.1.1:
     prop-types "^15.5.8"
     yargs "^6.3.0"
 
-react-native@^0.45.1:
+react-native@0.45.1:
   version "0.45.1"
   resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.45.1.tgz#b3283c4a88233421f9c662a2ff1a4ccc8a9f07c0"
   dependencies:
@@ -5087,7 +5087,7 @@ react-native@^0.45.1:
     xtend ">=4.0.0 <4.1.0-0"
     yargs "^6.4.0"
 
-react-navigation@^1.0.0-beta.11:
+react-navigation@1.0.0-beta.11:
   version "1.0.0-beta.11"
   resolved "https://registry.yarnpkg.com/react-navigation/-/react-navigation-1.0.0-beta.11.tgz#4271edb23cdbcc6eb88602f7fde0a77f0ef7a160"
   dependencies:
@@ -6379,8 +6379,9 @@ webidl-conversions@^4.0.0:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/webidl-conversions/-/webidl-conversions-4.0.1.tgz#8015a17ab83e7e1b311638486ace81da6ce206a0"
 
-websql@expo/node-websql#18.0.0:
+"websql@github:expo/node-websql#18.0.0":
   version "0.4.4"
+  uid e364fa65146a9e2157a19e5c719e7702c2b6b87a
   resolved "https://codeload.github.com/expo/node-websql/tar.gz/e364fa65146a9e2157a19e5c719e7702c2b6b87a"
   dependencies:
     argsarray "^0.0.1"
