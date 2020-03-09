@@ -21,7 +21,7 @@
   "dependencies": {
     "axios": "^0.16.2",
     "expo": "18.0.8",
-    "npm": "4.6.1",
+    "npm": "6.13.4",
     "react": "16.0.0-alpha.12",
     "react-native": "0.45.1",
     "react-native-dotenv": "0.1.0",
