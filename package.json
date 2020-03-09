@@ -16,7 +16,10 @@
     "test": "node node_modules/jest/bin/jest.js --watch"
   },
   "jest": {
-    "preset": "jest-expo"
+    "preset": "jest-expo",
+    "testPathIgnorePatterns": [
+      "node_modules"
+    ]
   },
   "dependencies": {
     "axios": "^0.16.2",
